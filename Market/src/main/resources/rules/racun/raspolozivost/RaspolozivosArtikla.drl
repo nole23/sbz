@@ -1,0 +1,23 @@
+package rules.racun.zlatni;
+ 
+import com.sample.model.ItemsAccount;
+import com.sample.model.Article;
+import com.sample.model.Account
+
+rule "Raspolozivost artikala - dovoljno za racun"
+    when
+    	$i : ItemsAccount( $c : count )
+        $a : Article( $c < amount, a : amount )
+    then
+    	$a.setAmount(a - $c);
+        System.out.println( "Postoji dovoljno srestava u magacinu "  );
+end
+
+rule "Raspolozivost artikala - nije dovoljno za racun"
+    when
+    	$i : ItemsAccount( $c : count )
+        $a : Article( $c > amount, a : amount )
+    then
+    	$a.setAmount(a);
+        System.out.println( "Ne postoji dovoljno srestava u magacinu "  );
+end

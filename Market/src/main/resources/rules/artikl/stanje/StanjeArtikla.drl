@@ -1,0 +1,19 @@
+package rules.racun.discount;
+ 
+import com.sample.model.Article;
+ 
+rule "Provera stanja artikla na lageru"
+    when
+    	$a : Article(amount < minState)
+    then
+    	$a.setComplement(false);
+        System.out.println( "Treba dopuniti artikl ");
+end
+
+rule "Provera stanja artikla na lageru - vise"
+    when
+    	$a : Article(amount > minState)
+    then
+    	$a.setComplement(true);
+        System.out.println( "na lageru ima vise od minimum dozvoljenog ");
+end

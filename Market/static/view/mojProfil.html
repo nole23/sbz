@@ -1,0 +1,41 @@
+<div class="col-sm-9 padding-right">
+	<div class="features_items"><!--features_items-->
+		<h2 class="title text-center">Moj Profil</h2>
+		
+		<div class="product-details"><!--product-details-->
+			<div class="col-sm-5">
+				<div class="view-product">
+					<img src="css/images/home/novica.jpg" alt="" />
+					<h3>ZOOM</h3>
+				</div>
+				
+
+			</div>
+			<div class="col-sm-7">
+				<div class="product-information"><!--/product-information-->
+					
+					<h2>{{profil.name}} {{profil.surname}}</h2>
+					<p>Person ID: {{profil.id}}</p>
+					<br/>
+					<span ng-if="profil.profilUserDTO.categoryUserDTO != null">
+						<span>Kategorija profila</span>
+						<label>Broj besplatnih tokena: DIN</label>
+						<input type="text" value="{{profil.profilUserDTO.rewardPoints}}" />
+					</span>
+					
+					<p><b>email:</b> {{profil.email}}</p>
+					<p><b>datum kreiranja:</b>{{profil.createProfile | date:'medium'}}</p>
+					
+					<br/>
+					<p><b>Drzava:</b> {{profil.profilUserDTO.country}}</p>
+					<p><b>Grad:</b> {{profil.profilUserDTO.city}}</p>
+					<p><b>Adresa:</b> {{profil.profilUserDTO.street}} {{profil.profilUserDTO.numberStreet}}</p>
+					<p><b>Mobilni:</b> {{profil.profilUserDTO.mobile}}</p>
+					
+					<button ng-click="setting()" class="btn btn-default">Podesavanje</button>
+					<button ng-click="address()" class="btn btn-default">Podesavanje adrese</button>
+				</div><!--/product-information-->
+			</div>
+		</div><!--/product-details-->
+	</div><!--features_items-->
+</div>

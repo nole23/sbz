@@ -1,0 +1,22 @@
+package rules.racun.godine;
+ 
+import com.sample.model.Account;
+import com.sample.model.Popusti;
+import java.util.Date
+
+function Date year(){
+    Date datee=new Date();
+
+ 
+    return datee;
+}
+
+rule "Popust na racun - dve godine star profil"
+    when
+        $a : Account((year().getYear() - Account.User.createProfile.getYear()) >= 2)
+        $p : Popusti()
+    then
+    	System.out.println( "Peti popust " );
+        $p.setTipPopusta("Stariji od 2 godine");
+		$p.setProcenat(1);
+end

@@ -1,0 +1,50 @@
+
+<div class="col-sm-9 padding-right">
+	<div class="features_items"><!--features_items-->
+		<h2 class="title text-center">Pregled Svih Kategorija</h2>
+
+		<section id="cart_items">
+			<div class="container">
+				
+				<div class="table-responsive cart_info">
+					<table class="table table-condensed" style="width: 850px">
+						<thead>
+							<tr class="cart_menu">
+								<td class="image">Naziv Kategorije</td>
+								<td class="description"></td>
+								<td class="price">Broj Artikala Kategorije</td>
+								<td class="price">Akcija</td>
+							</tr>
+						</thead>
+						
+						<tbody>
+							<tr ng-repeat="c in category">
+								<td class="cart_product">
+									<a href="" ng-click="setingCategory(c.id)"><img style="width: 100px; height: 100px" src="image/category/{{c.id}}.png" alt=""></a>
+								</td>
+								<td class="cart_description">
+									<h4><a href="">{{c.nameCategory}}</a></h4>
+									<p>Web ID: {{c.id}}</p>
+								</td>
+								<td class="cart_price">
+									<p>509</p>
+								</td>
+								
+								<td ng-if="c.listActionCategoryDTO[0].actionEventDTO.nameAction == null" class="cart_price">
+									<p>Nema Akcije</p>
+								</td>
+								
+								<td ng-if="c.listActionCategoryDTO[0].actionEventDTO.nameAction != null" class="cart_price">
+									<p>{{c.listActionCategoryDTO[0].actionEventDTO.nameAction}}</p>
+								</td>
+								
+							</tr>
+						</tbody>
+					
+					</table>
+				</div>
+			
+			</div>
+		</section>
+	</div>
+</div>

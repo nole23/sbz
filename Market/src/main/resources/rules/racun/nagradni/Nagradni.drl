@@ -1,0 +1,25 @@
+package rules.racun.godine;
+ 
+import com.sample.model.ProfileUser;
+import com.sample.model.Account;
+
+rule "Dodela nagradni bodova - nemate pravo na bodove"
+    when
+    	$p : Account()
+        $a : ProfileUser(ProfileUser.CategoryUser.spendingLimit == null)   
+    then
+    	System.out.println( "Nemate pravo na nagradne bodove" );   
+end
+
+rule "Dodela nagradni bodova - imate pravo na bodove"
+    when
+    	$p : Account($r : newPrice)
+        $a : ProfileUser($b : rewardPoints, ProfileUser.CategoryUser.spendingLimit != null)   
+    	$total : Double() from accumulate(
+    		ProfileUser( $n : ProfileUser.CategoryUser.SpendingLimit.discountPercent ),
+			sum( ($r * $n) / 100)
+		);
+    then
+    	$a.setRewardPoints($total.intValue());
+    	System.out.println( "Imate pravo na nagradne bodove "+$total.intValue() );
+end

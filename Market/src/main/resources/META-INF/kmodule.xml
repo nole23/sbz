@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kmodule xmlns="http://jboss.org/kie/6.0.0/kmodule"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <kbase name="rules1" packages="rules.racun.discount">
+        <ksession name="ExampleSession"/>
+    </kbase>
+    
+    <kbase name="rules2" packages="rules.racun.zlatni">
+        <ksession name="ZlatniSrebreniSession"/>
+    </kbase>
+    
+    <kbase name="rules3" packages="rules.racun.godine">
+        <ksession name="GodineSession"/>
+    </kbase>
+     <kbase name="rules4" packages="rules.artikl.akcija">
+        <ksession name="PopustArtikla"/>
+    </kbase>
+    <kbase name="rules5" packages="rules.racun.nagradni">
+        <ksession name="NagradniBodovi"/>
+    </kbase>
+    <kbase name="rules6" packages="rules.artikl.stanje">
+        <ksession name="ComplementArticle"/>
+    </kbase>
+    <kbase name="rules7" packages="rules.racun.raspolozivost">
+        <ksession name="RaspolozivostArtikla"/>
+    </kbase>
+    <kbase name="rules8" packages="rules.racun.stavke">
+        <ksession name="PopustStavke"/>
+    </kbase>
+</kmodule>

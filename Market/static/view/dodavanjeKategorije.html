@@ -1,0 +1,34 @@
+<div class="col-sm-9 padding-right">
+	<div class="features_items"><!--features_items-->
+		<h2 class="title text-center">Dodavanje Nove Kategorije</h2>
+		<div class="col-sm-4" style="width: 100%">
+			<div class="signup-form"><!--sign up form-->
+				<h2>Dodavanje novog Kategorije</h2>
+				
+				<form >
+					<label>Naziv Kategorije</label>
+					<input type="text" ng-model="kategorija.uniqueCode" placeholder="Sifra kategorije"/>
+					<input type="text" ng-model="kategorija.nameCategory" placeholder="Naziv artikla"/>
+					<input type="text" ng-model="kategorija.maxDiscount" placeholder="Maximalan popust u procentima"/>
+					<label>Siroke potrosnje</label>
+					<input type="checkbox" ng-model="kategorija.sirokePotrosnje" placeholder="Siroke potrosnje"/>
+					
+					<!-- 
+					<label>Izaberite Podkategoriju</label>
+					<select class="form-control" ng-model="kategorija.podCategory.id" style="background: #F0F0E9;border: medium none;color: #696763;display: block;
+														font-family: 'Roboto', sans-serif;font-size: 14px;font-weight: 300;height: 40px;
+														margin-bottom: 10px;outline: medium none;padding-left: 10px;width: 100%;">
+						<option value="">Izaberite</option>
+						<option ng-repeat="pk in podkategorje" value="{{pk.id}}">{{pk.namePodCateogry}}</option>
+					</select>
+					 -->
+					
+					
+					</br>
+					<button type="submit" ng-click="addCategory()" class="btn btn-default">Dodati</button>
+					</br>
+				</form>
+			</div><!--/sign up form-->
+		</div>
+	</div>
+</div>

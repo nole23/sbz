@@ -1,0 +1,38 @@
+<div class="col-sm-9 padding-right">
+	<div class="features_items"><!--features_items-->
+		<h2 class="title text-center">Kreirati dogadjaj</h2>
+		
+		<div class="col-sm-4" style="width: 100%">
+			<div class="signup-form"><!--sign up form-->
+				
+				<form >
+					<label>Naziv dogadjaja</label>
+					<input type="text" ng-model="event.nameAction" placeholder="Naziv dogadjaj"/>
+					
+					<label>Kategorija Artikla</label>
+					<select class="form-control" ng-controller="PodKategorijaAddCtrl" ng-model="event.kategorija" style="background: #F0F0E9;border: medium none;color: #696763;display: block;
+														font-family: 'Roboto', sans-serif;font-size: 14px;font-weight: 300;height: 40px;
+														margin-bottom: 10px;outline: medium none;padding-left: 10px;width: 100%;">
+					
+						<option ng-repeat="c in category" value="{{c.id}}">{{c.nameCategory}}</option>
+					</select>
+					
+					<label>Traje od</label>
+					<input type="date" ng-model="event.startDate" placeholder="Naziv dogadjaj"/>
+					
+					<label>Traje do</label>
+					<input type="date" ng-model="event.endDate" placeholder="Naziv dogadjaj"/>
+					
+					<label>Procenat umanjenja</label>
+					<input type="text" ng-model="event.procent" placeholder="Naziv dogadjaj"/>
+					
+					</br>
+					<button type="submit" ng-click="addEvent()" class="btn btn-default">Dodati</button>
+					</br>
+				</form>
+				
+				
+			</div>
+		</div>
+	</div>
+</div>

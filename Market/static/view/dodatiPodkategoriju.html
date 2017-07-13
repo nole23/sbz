@@ -1,0 +1,27 @@
+<div class="col-sm-9 padding-right">
+	<div class="features_items"><!--features_items-->
+		<h2 class="title text-center">Dodavanje Nove Podkategorije</h2>
+
+		<div class="col-sm-4" style="width: 100%">
+			<div class="signup-form"><!--sign up form-->
+				<h2>Dodavanje novog Podkategorije</h2>
+				<form >
+					<label>Naziv Podkategorije</label>
+					<input type="text" ng-model="podKategorija.namePodCateogry" placeholder="Naziv Podkategorije"/>
+					
+					<label>Izaberite Kategoriju</label>
+					<select class="form-control" ng-model="podKategorija.categoryArticleDTO.id" style="background: #F0F0E9;border: medium none;color: #696763;display: block;
+														font-family: 'Roboto', sans-serif;font-size: 14px;font-weight: 300;height: 40px;
+														margin-bottom: 10px;outline: medium none;padding-left: 10px;width: 100%;">
+						<option value="">Izaberite</option>
+						<option ng-repeat="pk in category" value="{{pk.id}}">{{pk.nameCategory}}</option>
+					</select>
+					
+					</br>
+					<button type="submit" ng-click="addPodCategory()" class="btn btn-default">Dodati</button>
+					</br>
+				</form>
+			</div><!--/sign up form-->
+		</div>
+	</div>
+</div>

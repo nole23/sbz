@@ -1,0 +1,30 @@
+<div class="col-sm-9 padding-right">
+	<div class="features_items" ng-controller="AddToCart"><!--features_items-->
+		<h2 class="title text-center">Kategorija - Sve</h2>
+
+		<div class="login-form"><!--login form-->
+			
+			<form >
+				<input type="text" ng-model="search" placeholder="Pretrazite stranicu" />	
+			</form>
+			
+			
+		</div><!--/login form-->
+		
+		<div data-ng-repeat="a in allKategory | filter:search">
+					<div class="col-sm-3">
+						<div class="product-image-wrapper">
+							<div class="single-products">
+								<div class="productinfo text-center">
+									<a href="#/user/{{a.id}}/{{a.nameCategory}}" ><img src="./css/images/home/gallery1.jpg" alt="" /></a>
+						
+									<p>{{a.nameCategory}}</p>
+								</div>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+		
+	</div><!--features_items-->
+</div>

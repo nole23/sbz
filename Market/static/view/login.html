@@ -1,0 +1,36 @@
+<section id="form" ng-controller="LoginCtrl"><!--form-->
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-4 col-sm-offset-1">
+					<div class="login-form"><!--login form-->
+						<h2>Ulogujte se na vas nalog</h2>
+						<form >
+							<input type="text" ng-model="user.username" placeholder="Korisnicno ime" />
+							<input type="password" ng-model="user.password" placeholder="Sifra" />
+							<span>
+								<input type="checkbox" class="checkbox"> 
+								Zapamti me
+							</span>
+							<button type="submit" ng-click="login()" class="btn btn-default">Uloguj se</button>
+						</form>
+					</div><!--/login form-->
+				</div>
+				<div class="col-sm-1">
+					<h2 class="or">ili</h2>
+				</div>
+				<div class="col-sm-4">
+					<div class="signup-form"><!--sign up form-->
+						<h2>Kreirajte novi nalog!</h2>
+						<form>
+							<input type="text" ng-model="users.name" placeholder="Ime"/>
+							<input type="text" ng-model="users.surname" placeholder="Prezime"/>
+							<input type="text" ng-model="users.username" placeholder="Korisnicko ime"/>
+							<input type="email" ng-model="users.email" placeholder="Email adresa"/>
+							<input type="password" ng-model="users.password" placeholder="Sifra"/>
+							<button type="submit" ng-click="registration()" class="btn btn-default">Sacuvaj</button>
+						</form>
+					</div><!--/sign up form-->
+				</div>
+			</div>
+		</div>
+	</section><!--/form-->

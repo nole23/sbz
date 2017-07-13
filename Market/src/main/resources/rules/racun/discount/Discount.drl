@@ -1,0 +1,16 @@
+package rules.racun.discount;
+ 
+import com.sample.model.Account;
+import com.sample.model.Popusti;
+ 
+rule "Popust na racun - vise 200000"
+    when
+        $i : Account( newPrice >= 200000 )
+        $p : Popusti()
+    then
+        System.out.println( "Popust na ceo racun posto je veci od 200000 din." );
+        
+        $p.setTipPopusta("Vas racun prelayi 200000 DIN");
+		$p.setProcenat(5);
+end
+

@@ -1,0 +1,96 @@
+<div class="col-sm-9 padding-right">
+	<div class="features_items" ng-controller="AddToCart"><!--features_items-->
+		<h2 class="title text-center">Kategorija - Sve</h2>
+
+		<div class="login-form" style="border-bottom: 1px solid #333"><!--login form-->
+			<div style="width: 100%; text-align: center;">
+				<h2>Izvrsite pretragu prema:</h2>
+			</div>
+			<form >
+				<div style="float: left; width: 25%">
+					<span>
+						<input type="checkbox" ng-change="search()" ng-model="stanje.kreira" class="checkbox"> 
+						KREIRA
+					</span>
+				</div>
+				<div style="float: left; width: 25%">
+					<span>
+						<input type="checkbox" ng-change="search()" ng-model="stanje.porucivanje" class="checkbox"> 
+						PORUCIVANJE
+					</span>
+				</div>
+				<div style="float: left; width: 25%">
+					<span>
+						<input type="checkbox" ng-change="search()" ng-model="stanje.kupljeno" class="checkbox"> 
+						KUPLJENO
+					</span>
+				</div>
+				<div style="float: left; width: 25%">
+					<span>
+						<input type="checkbox" ng-change="search()" ng-model="stanje.otkazano" class="checkbox"> 
+						OTKAZANO
+					</span>
+				</div>
+
+			</form>
+			
+			
+		</div><!--/login form-->
+	</div><!--features_items-->
+	<section id="cart_items" >
+	<div class="container" style="width: 100%">
+		
+		<div class="table-responsive cart_info" >
+			<table class="table table-condensed">
+				<thead>
+					<tr class="cart_menu">
+						<td class="image">Id racuna</td>
+						<td class="description"></td>
+						<td class="price">Stavke racuna</td>
+						<td class="description"></td>
+						<td class="quantity">Ukupna cena</td>
+						<td class="quantity">Datum kupovine</td>
+						<td class="quantity">Prihvati</td>
+						<td></td>
+					</tr>
+				</thead>
+				<tbody >
+				
+				
+					<tr data-ng-repeat="a in cartSearc">
+						<td class="cart_product">
+							<a href="#/finis/account/{{a.id}}"><img src="css/images/cart/one.png" alt=""></a>
+						</td>
+						<td class="cart_description">
+							<h4><a href="">{{a.id}}</a></h4>
+							<p>Web ID: {{a.itemsAccountDTO.articleDTO.id}}</p>
+						</td>
+						<td class="cart_price" ng-controller="FinishAccountCtrl">
+							<a href data-ng-click="stavke(a)">Sve stavke</a>
+						</td>
+						<td class="cart_quantity">
+							<div class="cart_quantity_button">
+								
+							</div>
+						</td>
+						<td class="cart_total">
+							<p class="cart_total_price">${{a.newPrice}}</p>
+						</td>
+						<td class="cart_delete">
+							<p><i class="">{{a.dateCreateAccount | date:'medium'}}</i></p>
+						</td>
+						<td class="cart_price" ng-show="a.stanje == 'PORUCIVANJE'">
+							<a href data-ng-click="prihvati(a)">Prihvati</a>
+						</td>
+					</tr>
+
+					
+					
+				</tbody>
+			</table>
+		</div>
+	</div>
+</section > <!--/#cart_items-->	
+		
+	
+</div>

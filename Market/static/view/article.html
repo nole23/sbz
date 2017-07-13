@@ -1,0 +1,175 @@
+<div class="col-sm-9 padding-right">
+
+	<modal-dialog show='modalShown' width='750px' height='90%'>
+	  <p>Modal Content Goes here<p>
+	</modal-dialog>
+
+	<div class="product-details"><!--product-details-->
+		<div class="col-sm-5">
+			<div class="view-product">
+				<img src="./css/images/product-details/1.jpg" alt="" />
+				<h3 ng-if="getCurrentUserRole()&&getCurrentUserRole()!='USER'">Dodaoj sliku</h3>
+				<h3 ng-if="getCurrentUserRole()&&getCurrentUserRole()!='ADMIN'">ZOOM</h3>
+			</div>
+			<div id="similar-product" class="carousel slide" data-ride="carousel">
+				
+				  <!-- Wrapper for slides -->
+				    <div class="carousel-inner">
+				    
+						<div class="item active">
+						  <a href=""><img src="" alt=""></a>
+						  <a href=""><img src="" alt=""></a>
+						  <a href=""><img src="" alt=""></a>
+						</div>
+						
+						
+					</div>
+
+				  <!-- Controls -->
+				  <a class="left item-control" href="#similar-product" data-slide="prev">
+					<i class="fa fa-angle-left"></i>
+				  </a>
+				  <a class="right item-control" href="#similar-product" data-slide="next">
+					<i class="fa fa-angle-right"></i>
+				  </a>
+			</div>
+
+		</div>
+		<div class="col-sm-7">
+			<div class="product-information" ng-controller="AddToCart"><!--/product-information-->
+				<img ng-if="artikl.podCategoryDTO.categoryArticleDTO.listActionCategoryDTO[0].actionEventDTO.procent != null" style="height: 70px; width: 70px" src="./css/images/product-details/pricing.png" class="newarrival" alt="" />
+				<h2>{{artikl.nameArticle}}</h2>
+				<p>Web ID: {{artikl.id}}</p>
+				<img src="./css/images/product-details/rating.png" alt="" />
+				<br/><span ng-if="artikl.podCategoryDTO.categoryArticleDTO.listActionCategoryDTO[0].actionEventDTO.procent != null">DIN ${{artikl.price}}</span>
+				<span>
+					<span ng-if="artikl.podCategoryDTO.categoryArticleDTO.listActionCategoryDTO[0].actionEventDTO.procent != null">
+						- {{artikl.podCategoryDTO.categoryArticleDTO.listActionCategoryDTO[0].actionEventDTO.procent}}% SNIZENEJ 
+					</span>
+					<span style="color: #009344">
+						*{{artikl.podCategoryDTO.categoryArticleDTO.listActionCategoryDTO[0].actionEventDTO.nameAction}}*
+					</span>
+					<span style="color: blue;" ng-if="artikl.podCategoryDTO.categoryArticleDTO.listActionCategoryDTO[0].actionEventDTO.procent != null">
+						NOVA CENA ${{artikl.price -((artikl.price * artikl.podCategoryDTO.categoryArticleDTO.listActionCategoryDTO[0].actionEventDTO.procent) / 100)}}
+					</span>
+					<span ng-if="artikl.podCategoryDTO.categoryArticleDTO.listActionCategoryDTO[0].actionEventDTO.procent == null">DIN ${{artikl.price}}</span>
+					<label></label>
+					
+					
+				</span>
+				<button ng-if="getCurrentUserRole()&&getCurrentUserRole()=='USER'" ng-click="addCart(artikl.id)" type="button" class="btn btn-fefault cart">
+					<i class="fa fa-shopping-cart"></i>
+					Dodati u korpu
+				</button>
+				<div ng-controller="ArtikliAddCtrl" ng-if="getCurrentUserRole()&&getCurrentUserRole()!='USER'">
+					<input type="text" ng-model="artikl.amount" placeholder="dopuna" />
+					<button  ng-click="dopuna(artikl.id)" type="button" class="btn btn-fefault cart">
+						<i class="fa fa-shopping-cart"></i>
+						Dopuni
+					</button>
+				</div>
+				<br/>
+				<span>
+					<span style="color: #009344"></span>
+				</span>
+				
+			</div><!--/product-information-->
+		</div>
+	</div><!--/product-details-->
+
+	<div ng-controller="TabController" class="category-tab shop-details-tab"><!--category-tab-->
+		<div class="col-sm-12">
+			<ul class="nav nav-tabs">
+				<li ng-class="{active: isSet(1)}"><a href ng-click="setTab(1)" data-toggle="tab">O proizvodu</a></li>
+				<li ng-if="getCurrentUserRole()&&getCurrentUserRole()!='USER'" ng-class="{active: isSet(2)}"><a href ng-click="setTab(2)" data-toggle="tab">Azurirati</a></li>
+				<li ng-class="{active: isSet(3)}"><a href ng-click="setTab(3)" data-toggle="tab">Komentari</a></li>
+				<li ng-class="{active: isSet(4)}"><a href ng-click="setTab(4)" data-toggle="tab">Ostavite komenatar</a></li>
+			</ul>
+		</div>
+		<div class="tab-content">
+		
+			<div ng-show="isSet(1)">
+				<div class="tab-pane fade active in" id="reviews" >
+					
+					<p><b>Na lageru:</b> {{artikl.amount}}</p>
+					<p><b>Datum objave:</b> {{artikl.dataAddArticle | date:'medium'}}</p>
+					<p><b>Brend:</b> {{artikl.podCategoryDTO.namePodCateogry}}</p>
+					<p><b>Model:</b> {{artikl.name}}</p>
+					<p><b>Brend:</b> {{artikl.categoryArticle.podCategory.namePodCateogry}}</p>
+					
+
+				</div>
+			</div>
+		
+			<div ng-show="isSet(2)">
+				<div class="tab-pane fade active in" id="reviews" >
+					
+					<div class="col-sm-4" style="width: 100%">
+						<div class="signup-form"><!--sign up form-->
+							<h2>Azurirati osnovne podatke artikla</h2>
+							<form >
+					
+								<label>Naziv</label>
+								<input type="text" ng-model="article.nameArticle" placeholder="{{artikl.nameArticle}}"/>
+								
+								<label>Cena</label>
+								<input type="text" ng-model="article.nameArticle" placeholder="{{artikl.price}}"/>
+								
+								<label>Kolicina</label>
+								<input type="text" ng-model="article.nameArticle" placeholder="{{artikl.amount}}"/>
+								
+								</br>
+								<button type="submit" ng-click="articleUpdate()" class="btn btn-default">Azurirajte</button>
+								</br>
+							</form>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+			
+			
+			
+			<div ng-show="isSet(3)">
+				<div class="tab-pane fade active in" id="reviews" >
+					<div class="col-sm-12" ng-repeat="message in ariklMessage">
+						<ul>
+							<li><a href=""><i class="fa fa-user"></i>{{message.user.fName}}</a></li>
+							<li><a href=""><i class="fa fa-clock-o"></i>{{message.dateTime}}</a></li>
+							<li><a href=""><i class="fa fa-calendar-o"></i>{{message.dateDay}}</a></li>
+						</ul>
+						<p>{{message.message}}.</p>
+						
+					</div>
+				</div>
+			</div>
+		
+			<div ng-show="isSet(4)">
+				<div class="tab-pane fade active in" id="reviews" >
+					<div class="col-sm-12">
+						
+						
+						<form action="#">
+							<span>
+								<input type="text" placeholder="Vase Ime"/>
+								<input type="email" placeholder="Vas email"/>
+							</span>
+							<textarea name="" ></textarea>
+							<button type="button" class="btn btn-default pull-right">
+								Odgovori
+							</button>
+						</form>
+					</div>
+				</div>
+			</div>		
+		
+		
+		</div>
+		
+		
+	</div>
+
+
+
+
+</div>

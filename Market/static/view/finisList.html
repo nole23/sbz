@@ -1,0 +1,89 @@
+<div class="col-sm-9 padding-right" ng-controller="FinisAccountListCtrl" >
+	<div class="breadcrumbs">
+			<ol class="breadcrumb">
+			  <li><a href="#">Home</a></li>
+			  <li class="active">Shopping Cart</li>
+			</ol>
+		</div>
+<section id="do_action" >
+	<div class="container" style="width: 100%">
+		<div class="heading">
+			<h3>Vasa uspesno zavrsena transakcija</h3>
+			<p>Svi podaci vezani za datu transakciju</p>
+		</div>
+		
+		<div class="col-sm-6" style="width: 850px">
+			<div class="total_area">
+				<ul>
+					<h3 style="text-align: center;">RACUN</h3>
+					<li>Originalna cena <span>${{ account.originalPrice }}</span></li>
+					<li>Popust na racun <span>${{ account.originalPrice -  account.newPrice}}</span></li>
+					<li>Popust u procentima <span>{{ popustProcenti }}%</span></li>
+					<li>Ostvareni nagradni bodovi <span>{{account.setPoint}}</span></li>
+					<li>Potroseni nagradni bodovi <span>{{account.getPoint}}</span></li>
+					<li>Ukupno ste platili <span>${{ account.newPrice }}</span></li>
+					
+				</ul>
+					
+			</div>
+		</div>
+		
+		
+	</div>
+</section>
+	
+	
+	
+<section id="cart_items" >
+	<div class="container" style="width: 100%">
+		
+		<div class="table-responsive cart_info" >
+			<table class="table table-condensed">
+				<thead>
+					<tr class="cart_menu">
+						<td class="image">Artikl</td>
+						<td class="description"></td>
+						<td class="price">Cena</td>
+						<td class="quantity">Kolicina</td>
+						<td class="total">Ukupno</td>
+						<td></td>
+					</tr>
+				</thead>
+				<tbody >
+				
+				
+					<tr data-ng-repeat="a in account.listItemsAccountDTO | orderBy:'id'">
+						<td class="cart_product">
+							<a href=""><img src="css/images/cart/one.png" alt=""></a>
+						</td>
+						<td class="cart_description">
+							<h4><a href="">{{a.itemsAccountDTO.articleDTO.nameArticle}}</a></h4>
+							<p>Web ID: {{a.itemsAccountDTO.articleDTO.id}}</p>
+						</td>
+						<td class="cart_price">
+							<p>${{a.itemsAccountDTO.articleDTO.price}}</p>
+						</td>
+						<td class="cart_quantity">
+							<div class="cart_quantity_button">
+								
+								<input class="cart_quantity_input" type="text" name="quantity" value="{{a.itemsAccountDTO.count}}" autocomplete="off" size="2">
+								
+							</div>
+						</td>
+						<td class="cart_total">
+							<p class="cart_total_price">${{a.itemsAccountDTO.articleDTO.price * a.itemsAccountDTO.count}}</p>
+						</td>
+						
+					</tr>
+
+					
+					
+				</tbody>
+			</table>
+		</div>
+	</div>
+</section > <!--/#cart_items-->
+
+	
+
+</div>

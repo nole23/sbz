@@ -1,0 +1,91 @@
+<div style="background-color: #fff; width: 400px" ng-controller="ShopCartCtrl">
+		
+			
+				
+			
+			<div class="container" >
+			<div class="spinner" ng-show="loo">
+					<div class="loader" ></div>
+				</div>
+			
+				<div class="heading">
+					<h3>Narucivanje</h3>
+					<p>Nacin placanja</p>
+				</div>
+				
+				<div class="col-sm-6" >
+					<div class="total_area" style="margin: 0 0 0 -50px">
+						<form>
+						<ul>
+							<h3 style="text-align: center;">RACUN</h3>
+							<li>Originalna cena bez popusta <span>{{ allCart.originalPrice }}</span></li>
+							<li>Popust na artikle <span>{{ allCart.originalPrice - allCart.newPrice }}</span></li>
+							<li>Ostvariliste pravo na popust racuna <span>{{ zbir }}%</span></li>
+							<li>Ukupno sa svim popustima <span>${{allCart.newPrice - ((allCart.newPrice * zbir) / 100)}}</span></li>
+							<br>
+							<br>
+							<br>
+							<li>Ukupan iznos <span>${{(allCart.newPrice - ((allCart.newPrice * zbir) / 100))}}</span></li>
+							
+						</ul>
+							
+							<a class="btn btn-default update" data-ng-click="plati()">Kupi</a>
+							<a class="btn btn-default update" data-ng-click="otkazati(allCart.id)">Otkazati</a>
+						</form>
+						
+						
+						<section id="do_action"  ng-if="placanje">
+						<div class="container">
+							<div class="heading">
+								<h3>Nacin placanja</h3>
+								<p>Izaberite nacin placanja</p>
+							</div>
+							<div class="row">
+								<div class="col-sm-6">
+									<div class="chose_area">
+										<ul class="user_option">
+											<li>
+												<input type="checkbox">
+												<label>Po pouzecu</label>
+											</li>
+											
+											<li>
+												<input type="checkbox" data-ng-model="nest" value="t"/>
+												<label>Iskoristi bodove: {{bodovi}}</label>
+											</li>
+											
+											
+											<li >Ukupan iznos 
+												 <div ng-if="nest">
+													<div ng-if="bodovi > (allCart.newPrice - ((allCart.newPrice * zbir) / 100))">
+														<span >${{ (allCart.newPrice - ((allCart.newPrice * zbir) / 100) - (bodovi - (bodovi - (allCart.newPrice - ((allCart.newPrice * zbir) / 100)))) }}</span>
+													</div>
+													<div ng-if="bodovi < (allCart.newPrice - ((allCart.newPrice * zbir) / 100))">
+														<span >${{(allCart.newPrice - ((allCart.newPrice * zbir) / 100)) - bodovi}}</span>
+													</div>
+												</div>
+												<div ng-if="!nest">
+													<span >${{(allCart.newPrice - ((allCart.newPrice * zbir) / 100)) }}</span>
+												</div>
+											</li>
+										</ul>
+										
+										<a class="btn btn-default update" data-ng-click="narucitiKonacno(allCart.id, nest)">Kupi</a>
+										<a class="btn btn-default update" data-ng-click="otkazati(allCart.id)">Otkazati</a>
+									</div>
+								</div>
+								
+							</div>
+						</div>
+					</section><!--/#do_action-->
+					</div>
+					
+					
+					
+				</div>
+				
+				
+			</div>
+		
+	
+</div>

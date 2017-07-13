@@ -1,0 +1,64 @@
+<div class="col-sm-9 padding-right" ng-controller="ArticlePorucivanjeCtrl">
+
+	<div class="spinner" ng-show="loading">
+		<div class="loader" ></div>
+	</div>
+	
+	<section id="cart_items" >
+		<div class="container" style="width: 100%">
+			<div class="breadcrumbs">
+				<ol class="breadcrumb">
+				  <li><a href="#">Home</a></li>
+				  <li class="active">lista artikala za dopunu</li>
+				</ol>
+			</div>
+			<div class="table-responsive cart_info" >
+				<table class="table table-condensed">
+					<thead>
+						<tr class="cart_menu">
+							<td class="image">Artikl</td>
+							<td class="description"></td>
+							<td class="price">Kolicina</td>
+							<td class="quantity">Dopuna</td>
+							<td class="total"></td>
+							<td class="total">Otkazati</td>
+							<td></td>
+						</tr>
+					</thead>
+					<tbody >
+					
+					
+						<tr data-ng-repeat="a in article | orderBy:'id'">
+							<td class="cart_product">
+								<a href=""><img src="css/images/cart/one.png" alt=""></a>
+							</td>
+							<td class="cart_description">
+								<h4><a href="">{{a.nameArticle}}</a></h4>
+								<p>Web ID: {{a.id}}</p>
+							</td>
+							<td class="cart_price">
+								<p>{{a.amount}}</p>
+							</td>
+							<td class="cart_quantity">
+								<div class="cart_quantity_button">
+									<form>
+										<input class="cart_quantity_input" type="text" name="quantity" ng-model="articl.amount" autocomplete="off" size="2">
+										<button class="cart_quantity_up" type="submit" ng-click="addAmount(a.id)" > ADD </button>
+									</form>
+								</div>
+							</td>
+							<td class="cart_total">
+							</td>
+							<td class="cart_delete">
+								<a class="cart_quantity_delete" href="" ng-click="otkazati(a.id)"><i class="fa fa-times"></i></a>
+							</td>
+						</tr>
+	
+						
+						
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</section > <!--/#cart_items-->
+</div>

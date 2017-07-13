@@ -1,0 +1,27 @@
+
+<div>
+<!--login form-->
+	<h2>Originalni parametri za {{prag.nameCategory}} su:</h2>
+	
+			<div class="total_area" style="width: 300px">
+				<ul>
+					<li>Potrosnja od <span>{{prag.spendingLimitDTO.minLimint}}</span> </li>
+					<li>Potrosnja do <span>{{prag.spendingLimitDTO.maxLimit}}</span> </li>
+					
+					<li>Popust <span>{{prag.spendingLimitDTO.discountPercent}}</span> </li>
+				</ul>
+			</div>
+		
+
+	<br>
+	<div class="login-form">
+		<h2>Promenite parametre:</h2>
+		<form >
+			<input type="text" ng-model="prag.spendingLimitDTO.minLimint" placeholder="Potrosnja od" />
+			<input type="text" ng-model="prag.spendingLimitDTO.maxLimit" placeholder="Potrosnja od" />
+			<input type="text" ng-model="prag.spendingLimitDTO.discountPercent" placeholder="Procenat umanjenja" />
+			
+			<button type="submit" ng-click="save()" class="btn btn-default">Promeni</button>
+		</form>
+	</div><!--/login form-->
+</div>

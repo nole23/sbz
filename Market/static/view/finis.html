@@ -1,0 +1,57 @@
+<div class="col-sm-9 padding-right" >
+<section id="cart_items" >
+	<div class="container" style="width: 100%">
+		<div class="breadcrumbs">
+			<ol class="breadcrumb">
+			  <li><a href="#">Zavrseni </a></li>
+			  <li class="active">racuni</li>
+			</ol>
+		</div>
+		<div class="table-responsive cart_info" >
+			<table class="table table-condensed">
+				<thead>
+					<tr class="cart_menu">
+						<td class="image">Id racuna</td>
+						<td class="description"></td>
+						<td class="price">Stavke racuna</td>
+						<td class="description"></td>
+						<td class="quantity">Ukupna cena</td>
+						<td class="quantity">Datum kupovine</td>
+						<td></td>
+					</tr>
+				</thead>
+				<tbody >
+				
+				
+					<tr data-ng-repeat="a in allCart | orderBy:'id':reverse ">
+						<td class="cart_product">
+							<a href="#/finis/account/{{a.id}}"><img src="css/images/cart/one.png" alt=""></a>
+						</td>
+						<td class="cart_description">
+							<h4><a href="">{{a.id}}</a></h4>
+							<p>Web ID: {{a.itemsAccountDTO.articleDTO.id}}</p>
+						</td>
+						<td class="cart_price">
+							<a href data-ng-click="stavke(a)">Sve stavke</a>
+						</td>
+						<td class="cart_quantity">
+							<div class="cart_quantity_button">
+								
+							</div>
+						</td>
+						<td class="cart_total">
+							<p class="cart_total_price">${{a.newPrice}}</p>
+						</td>
+						<td class="cart_delete">
+							<p><i class="">{{a.dateCreateAccount | date:'medium'}}</i></p>
+						</td>
+					</tr>
+
+					
+					
+				</tbody>
+			</table>
+		</div>
+	</div>
+</section > <!--/#cart_items-->	
+</div>

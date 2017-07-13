@@ -1,0 +1,34 @@
+package rules.racun.discount;
+ 
+import com.sample.model.ItemsAccount;
+import com.sample.model.ListActionCategory;
+import java.util.Date;
+
+function Date year(){
+    Date datee=new Date();
+
+ 
+    return datee;
+}
+ 
+rule "Popust na artikl ukoliko je na akciji"
+    when
+    	$a : ItemsAccount(p : originalPrice)
+        $i : ListActionCategory( ActionEvent.endDate > year(), d : ListActionCategory.ActionEvent.procent)
+        
+    then
+    	$a.setNewPrice(p - ((p * d) / 100));
+    	$a.setDiscountPrecentage(d);
+        System.out.println( "Popust artikla iz akcije ");
+end
+
+rule "Popust na artikl je istekao"
+    when
+    	$a : ItemsAccount(p : originalPrice)
+        $i : ListActionCategory( ActionEvent.endDate < year())
+        
+    then
+    	$a.setNewPrice(p);
+    	$a.setDiscountPrecentage(0);
+        System.out.println( "Popust ne postoji ");
+end

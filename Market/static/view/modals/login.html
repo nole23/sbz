@@ -1,0 +1,21 @@
+<div style="background-color: #fff; padding: 2%" ng-controller="LoginCtrl">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-4 col-sm-offset-1">
+				<div class="login-form"><!--login form-->
+					<h2>Da bi ste kreirali korpu morate se ulogovati</h2>
+					<form >
+						<input type="text" ng-model="user.username" placeholder="Korisnicno ime" />
+						<input type="password" ng-model="user.password" placeholder="Sifra" />
+						<span>
+							<input type="checkbox" class="checkbox"> 
+							Zapamti me
+						</span>
+						<button type="submit" ng-click="login()" class="btn btn-default">Uloguj se</button>
+					</form>
+				</div><!--/login form-->
+				<h2 style="font-size: 24px">Ukoliko nemate korisnicki nalog pratite link <a href="#/login" >Restruj se</a></h2>
+			</div>
+		</div>
+	</div>
+</div>

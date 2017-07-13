@@ -1,0 +1,19 @@
+package rules.racun.godine;
+ 
+import com.sample.model.Account;
+import java.util.Date
+
+function Date year(){
+    Date datee=new Date();
+
+ 
+    return datee;
+}
+
+rule "Popust na 15 dana"
+    when
+        $a : Account()
+        
+    then
+    	System.out.println( "POpust na dane " );
+end

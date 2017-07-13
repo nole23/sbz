@@ -1,0 +1,15 @@
+<div style="background-color: #fff; padding: 2%">
+	<div >
+		<div class="signup-form"><!--sign up form-->
+			<h2>Vas profil</h2>
+			<form>
+				<input type="text" style="text-align: center;" placeholder="{{user.name}}" disabled/>
+				<input type="text" style="text-align: center;" placeholder="{{user.surname}}"/>
+				<input type="text" style="text-align: center;" placeholder="{{user.username}}"/>
+				<input type="email" ng-model="user.email" placeholder="{{user.email}}"/>
+				<input type="password" ng-model="user.password" placeholder="Promente sifru"/>
+				<button type="submit" ng-click="update()" class="btn btn-default">Sacuvaj</button>
+			</form>
+		</div><!--/sign up form-->
+	</div>
+</div>

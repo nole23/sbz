@@ -1,0 +1,51 @@
+<div class="col-sm-9 padding-right"  ng-controller="SperdingCtrl">
+
+	
+<section id="cart_items" >
+	<div class="container" style="width: 100%">
+		<div class="breadcrumbs">
+			<ol class="breadcrumb">
+			  <li><a href="#">Admin</a></li>
+			  <li class="active">Prag Potrosnje</li>
+			</ol>
+		</div>
+		<div class="table-responsive cart_info" >
+			<table class="table table-condensed">
+				<thead>
+					<tr class="cart_menu">
+						<td class="image"></td>
+						<td class="description">Naziv praga potroslje</td>
+						<td class="quantity"></td>
+						<td class="quantity"></td>
+						<td></td>
+					</tr>
+				</thead>
+				<tbody >
+				
+				
+					<tr ng-repeat="p in prag">
+						<td class="cart_product">
+							<a href=""><img style="height: 100px; width: 100px" src="image/speding/{{p.id}}.png" alt=""></a>
+						</td>
+						<td class="cart_description">
+							<h4><a href="">{{p.nameCategory}}</a></h4>
+						</td>
+						<td class="cart_quantity">		
+						</td>
+						<td class="cart_quantity">		
+						</td>
+						<td class="cart_quantity">
+							<a class="btn btn-default update" data-ng-click="edit(p.id)"  >Edit kategorije </a>
+						</td>
+						
+						
+					</tr>
+
+					
+					
+				</tbody>
+			</table>
+		</div>
+	</div>
+</section > <!--/#cart_items-->
+</div>

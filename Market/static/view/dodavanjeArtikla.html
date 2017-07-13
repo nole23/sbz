@@ -1,0 +1,57 @@
+<div class="col-sm-9 padding-right" ng-controller="ArtikliAddCtrl">
+	<div class="features_items"><!--features_items-->
+		<h2 class="title text-center">Dodavanje Novog Artikla</h2>
+
+		<div class="col-sm-4" style="width: 100%">
+			<div class="signup-form"><!--sign up form-->
+				<h2>Dodavanje novog artikla</h2>
+				<form >
+					<label>Naziv Artikla</label>
+					<input type="text" ng-model="article.nameArticle" placeholder="Naziv artikla"/>
+					
+					<label>Cena Artikla</label>
+					<input type="text" ng-model="article.price" placeholder="Cena artikla"/>
+					
+					<label>Kolicina Na Lageru</label>
+					<input type="text" ng-model="article.amount" placeholder="Kolicina na lageru"/>
+					
+					<label>Minimalna Dozvoljena Kolicina</label>
+					<input type="text" ng-model="article.minState" placeholder="Minimalno dozvoljena kolicina na lageru"/>
+					
+					<label>Status Artikla</label>
+					<select class="form-control" ng-model="article.statusRecord" style="background: #F0F0E9;border: medium none;color: #696763;display: block;
+														font-family: 'Roboto', sans-serif;font-size: 14px;font-weight: 300;height: 40px;
+														margin-bottom: 10px;outline: medium none;padding-left: 10px;width: 100%;">
+						<option value="true">Raspolozivo</option>
+						<option value="false">Nerspolozivo</option>
+					</select>
+					
+
+					<label>Kategorija Artikla</label>
+					<select class="form-control" ng-model="id" ng-click="radi()" style="background: #F0F0E9;border: medium none;color: #696763;display: block;
+														font-family: 'Roboto', sans-serif;font-size: 14px;font-weight: 300;height: 40px;
+														margin-bottom: 10px;outline: medium none;padding-left: 10px;width: 100%;">
+						<option  value="" >Odaberite Kategoriju</option>
+						<option  ng-repeat="c in category" value="{{c.id}}" >{{c.nameCategory}}</option>
+					</select>
+					
+					<div ng-if="podcategory != ''">
+					
+						<label>Podkategorija Kategorije</label>
+						<select class="form-control" ng-model="article.podCategoryDTO.id" style="background: #F0F0E9;border: medium none;color: #696763;display: block;
+															font-family: 'Roboto', sans-serif;font-size: 14px;font-weight: 300;height: 40px;
+															margin-bottom: 10px;outline: medium none;padding-left: 10px;width: 100%;">
+						
+							<option  ng-repeat="c in podcategory" value="{{c.id}}" >{{c.namePodCateogry}}</option>
+						</select>
+					
+					</div>
+					
+					</br>
+					<button type="submit" ng-click="addArticle()" class="btn btn-default">Dodati</button>
+					</br>
+				</form>
+			</div><!--/sign up form-->
+		</div>
+	</div>
+</div>

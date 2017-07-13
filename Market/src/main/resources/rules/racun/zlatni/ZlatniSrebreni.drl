@@ -1,0 +1,27 @@
+package rules.racun.zlatni;
+ 
+import com.sample.model.Account;
+import com.sample.model.Popusti;
+ 
+
+rule "Popust na racun - zlatni kupac"
+    when
+        $i : Account( Account.User.profilUser.categoryUser.nameCategory == "SREBRENI" )
+        $p : Popusti()
+    then
+        System.out.println( "Srebreni korisnik" );
+        $p.setTipPopusta("Srebreni korisnik");
+		$p.setProcenat(1);
+
+end
+
+rule "Popust na racun - srebreni kupac"
+    when
+        $i : Account( Account.User.profilUser.categoryUser.nameCategory == "ZLATNI" )
+        $p2 : Popusti()
+    then
+        System.out.println( "Zlatni korisnik" );
+        $p2.setTipPopusta("dodatni");
+		$p2.setProcenat(1);
+        
+end

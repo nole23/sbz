@@ -1,0 +1,40 @@
+<div class="col-sm-9 padding-right">
+	<div class="features_items"><!--features_items-->
+		<h2 class="title text-center">Ispis Svih Artikala</h2>
+		
+		
+		
+		<div class="tab-content">
+			
+			
+			<div data-ng-repeat="a in article">
+				<div class="col-sm-3">
+					<div class="product-image-wrapper">
+						<div class="single-products">
+							<div class="productinfo text-center">
+								<img src="css/images/home/gallery1.jpg" alt="" />
+								<h2>{{a.price}}</h2>
+								<p>{{a.nameArticle}}</p>
+								<a href="#/article/{{a.id}}" class="btn btn-default add-to-cart"><i class="fa fa-star"></i>Pregled Artikla</a>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			
+		
+		</div>
+		
+		<ul class="pagination">
+			<li><a href="" >&laquo;</a></li>
+			<li ng-repeat="a in pageNumber"><a href="">{{a}}</a></li>
+			<li><a href="">&raquo;</a></li>
+		</ul>
+		
+
+	</div><!--features_items-->
+	
+	
+</div>

@@ -1,0 +1,47 @@
+<div class="col-sm-9 padding-right">
+	<div class="features_items" ng-controller="AddToCart"><!--features_items-->
+		<h2 class="title text-center">Kategorija - {{kategorija}}</h2>
+
+		<div class="login-form"><!--login form-->
+			
+			<form >
+				<input type="text" ng-model="search" placeholder="Pretrazite stranicu" />	
+			</form>
+			
+			
+		</div><!--/login form-->
+		
+		<div class="spinner" ng-show="loading">
+			<div class="loader" ></div>
+		</div>
+		
+		<div data-ng-repeat="a in artiklKategorije | filter:search">
+			<div class="col-sm-4">
+				<div class="product-image-wrapper" >
+					<div class="single-products" >
+							<div class="productinfo text-center">
+								<img src="./css/images/home/product1.jpg" alt="" />
+								<h2>${{a.price}}</h2>
+								<p>{{a.nameArticle}}</p>
+								<a href="" ng-click="addCart(a.id)" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+							</div>
+							<div class="product-overlay">
+								<div class="overlay-content">
+									<h2>$ {{a.price}}</h2>
+									<p>{{a.nameArticle}}</p>
+									<a href="" ng-click="addCart(a.id)" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+								</div>
+							</div>
+					</div>
+					<div class="choose">
+						<ul class="nav nav-pills nav-justified">
+							<li><a href="#/article/1"><i class="fa fa-plus-square"></i>Pogledajte Artikl</a></li>
+							<li><a href="" ng-click="addCart(a.id)"><i class="fa fa-plus-square"></i>Dodajte U Korpu</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div><!--features_items-->
+</div>

@@ -1,0 +1,63 @@
+<div style="background-color: #fff;" ng-controller="ShopCartCtrl">
+	
+		<section id="do_action" >
+			<div class="container" >
+				<div class="heading">
+					<h3>Lista artikala za datu kupovinu</h3>
+				</div>
+				
+				<div class="col-sm-6" style="width: 550px">
+					<div class="total_area">
+						
+						
+						<table class="table table-condensed">
+							<thead>
+								<tr class="cart_menu">
+									<td class="image">Naziv artikla</td>
+									<td class="description"></td>
+									<td class="price">Cena artikla</td>
+									<td class="price">Kolicina artikla</td>
+									
+								</tr>
+							</thead>
+							<tbody >
+							
+							
+								<tr data-ng-repeat="a in podaci.listItemsAccountDTO | orderBy:'id'">
+									
+									<td class="cart_description">
+										<h4><a href="">{{a.itemsAccountDTO.articleDTO.nameArticle}}</a></h4>
+										
+									</td>
+									
+									<td class="cart_quantity">
+										<div class="cart_quantity_button">
+											
+										</div>
+									</td>
+									
+									<td class="cart_description">
+										<h4><a href="">{{a.itemsAccountDTO.articleDTO.price}}</a></h4>
+										
+									</td>
+									
+									<td class="cart_description">
+										<h4><a href="">{{a.itemsAccountDTO.count}}</a></h4>
+										
+									</td>
+									
+								</tr>
+			
+								
+								
+							</tbody>
+						</table>
+							
+					</div>
+				</div>
+				
+				
+			</div>
+		</section>
+	
+</div>
